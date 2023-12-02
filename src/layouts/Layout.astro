@@ -1,4 +1,6 @@
 ---
+import '../../base.css'
+
 // https://github.com/fontsource/font-files/tree/3ef0dc8e3b625831a3ce7d586194c718491b7c6f/fonts/google/jetbrains-mono
 import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
@@ -116,33 +118,5 @@ const pageTitle = [
 	body:not(.is-home) a {
 		text-decoration: underline;
 	}
-
-    .cursor::after {
-        display: block;
-        content: '';
-        position: absolute;
-        width: 4px;
-        height: 100%;
-        background-color: #fff;
-        animation: cursor 0.6s linear infinite alternate;
-        will-change: opacity;
-    }
-
-    .will-change-transform {
-        will-change: transform;
-    }
-
-        
-    @keyframes cursor {
-        0%,
-        40% {
-            opacity: 1;
-        }
-        
-        60%,
-        100% {
-            opacity: 0;
-        }
-    }
 
 </style>

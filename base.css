@@ -1,0 +1,21 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .blinking-cursor:after {
+        content: ▮;
+        animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
