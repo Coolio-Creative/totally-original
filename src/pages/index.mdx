@@ -2,7 +2,8 @@
 layout: ../layouts/Layout.astro
 title: Welcome
 ---
-import TypeWriter from '../components/TypeWriter.tsx'
+
+import { TypeWriter } from '../components/TypeWriter.tsx'
 
 
-<TypeWriter delay={300} text="Hello World" client:load />
+<TypeWriter delay={300} text='Welcome' client:only />

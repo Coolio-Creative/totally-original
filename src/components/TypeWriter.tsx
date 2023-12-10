@@ -1,5 +1,4 @@
-import type { Props } from 'astro';
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type TypeWriterProps = {
     delay: number;
@@ -8,22 +7,28 @@ type TypeWriterProps = {
 
 /* TODO:I want this to be where it takes in children elements but it was not working */
 
-export default function TypeWriter({delay, text}: TypeWriterProps) {
+export const TypeWriter = ({delay, text}: TypeWriterProps) => {
     const [typed, setTyped] = useState('')
+    
+    const cursor = "▮";
 
+    let cursorSpan = document.createElement('span');
+    cursorSpan.innerText = cursor;
+
+    cursorSpan.className = "cursor";
+    
     useEffect(() => {
         const nextTyped = text.slice(0, typed.length + 1)
 
         if (typed === nextTyped) return
-
+        cursorSpan.className = "";
         const timeout = setTimeout(() => {
             setTyped(nextTyped)
-            console.log(typed)
-        }, delay)
 
+        }, delay)
         return () => clearTimeout(timeout)
-    }, [typed]) 
+    }, [typed])
     return (
-        <h1>{typed}</h1>
-    )
+        <h1>{typed}{cursorSpan}</h1>
+    );
 }
